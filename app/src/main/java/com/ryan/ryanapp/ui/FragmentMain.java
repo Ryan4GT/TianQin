@@ -36,8 +36,6 @@ public class FragmentMain extends FragmentBase {
 
     @Override public void onAttach(Activity activity) {
         super.onAttach(activity);
-        toolbar.setTitle(R.string.fragment_main_title);
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

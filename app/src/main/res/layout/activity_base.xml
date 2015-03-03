@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <android.support.v7.widget.Toolbar
-        android:background="@color/white"
-        android:id="@+id/toolBar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <LinearLayout
+            android:id="@+id/toolbarMiddleView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/toolbarMiddleTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="middleTitle" />
+
+        </LinearLayout>
+
     </android.support.v7.widget.Toolbar>
 
     <View
-        android:id="@+id/devider"
-        android:background="@color/devider"
+        android:id="@+id/toolbarDevider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1px"
-        android:layout_below="@id/toolBar" />
+        android:layout_below="@id/toolbar"
+        android:background="@color/devider" />
 
-    <FrameLayout
-        android:id="@+id/baseViewContainer"
+    <ViewStub
+        android:id="@+id/contentViewStub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/devider"
-        android:background="@color/activity_background"></FrameLayout>
+        android:layout="@layout/activity_base_content_container" />
 
-</RelativeLayout>
+</LinearLayout>

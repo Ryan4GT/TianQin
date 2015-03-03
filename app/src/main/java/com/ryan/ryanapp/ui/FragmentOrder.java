@@ -48,8 +48,6 @@ public class FragmentOrder extends FragmentBase {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        toolbar.setTitle(R.string.fragment_order_title);
-        toolbar.getMenu().clear();
     }
 
 
@@ -59,7 +57,10 @@ public class FragmentOrder extends FragmentBase {
 
     @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        activityBase.setToolbarMiddleTitle("FragmentOrder");
+        toolbar.setNavigationIcon(null);
+        toolbar.getMenu().clear();
+        activityBase.setTitle("");
         mSomeScroller = (ScrollView) fragmentRootView.findViewById(R.id.outer_scroll);
         mListView = (ListView) fragmentRootView.findViewById(R.id.rabbit_reviews_list);
         ArrayList<String> datas = new ArrayList<String>();

@@ -2,7 +2,6 @@ package com.ryan.ryanapp.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,13 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.ryan.ryanapp.R;
 import com.ryan.ryanapp.Utils.LogUtils;
 import com.ryan.ryanapp.Utils.StringUtil;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -53,8 +50,9 @@ public class FragmentMe extends FragmentBase {
 
     @Override public void onAttach(Activity activity) {
         super.onAttach(activity);
-        toolbar.setTitle(R.string.fragment_me_title);
+//        toolbar.setTitle(R.string.fragment_me_title);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return fragmentRootView = inflater.inflate(R.layout.fragment_me, container, false);
@@ -73,32 +71,33 @@ public class FragmentMe extends FragmentBase {
 
     @Override public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
-                case FragmentImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_LIBRAY_BROWSER:
-                    String imageUri = data.getStringExtra(FragmentImageLibraryBrowser.ACTIVITY_RESULT_EXTRA_KEY);
-                    headImageLocalPath = FragmentImageLibraryBrowser.cropImage(this, imageUri);
-                    if(StringUtil.isEmpty(headImageLocalPath)) {
+                case ActivityImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_LIBRAY_BROWSER:
+                    String imageUri = data.getStringExtra(ActivityImageLibraryBrowser.ACTIVITY_RESULT_EXTRA_KEY);
+                    headImageLocalPath = ActivityImageLibraryBrowser.cropImage(this, imageUri);
+                    if (StringUtil.isEmpty(headImageLocalPath)) {
                         Toast.makeText(getActivity(), "您的手机暂不支裁切操作", Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case FragmentImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_CROP:
+                case ActivityImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_CROP:
                     File headImageFile = new File(headImageLocalPath);
-                    if(headImageFile.exists() && headImageFile.length() > 0) {
+                    if (headImageFile.exists() && headImageFile.length() > 0) {
                         LogUtils.e(TAG, " 裁切的图片………… " + headImageLocalPath);
                     }
                     break;
             }
         } else {
             switch (requestCode) {
-                case FragmentImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_LIBRAY_BROWSER:
-                case FragmentImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_CROP:
+                case ActivityImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_LIBRAY_BROWSER:
+                case ActivityImageLibraryBrowser.ACTIVITY_REQUEST_CODE_IMAGE_CROP:
                     Toast.makeText(getActivity(), "图像设置失败", Toast.LENGTH_SHORT).show();
                     headImageLocalPath = null;
                     break;
             }
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -108,17 +107,8 @@ public class FragmentMe extends FragmentBase {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.headImageView:
-                FragmentImageLibraryBrowser.chooseImageFromLibrary(this);
+                ActivityImageLibraryBrowser.chooseImageFromLibrary(this);
                 break;
-            case R.id.exposedGoodsView:
-                ActivityMeHome.setBeingLoadedFragment(FragmentExposedGoods.newInstance(new HashMap<String, String>()));
-                startActivity(new Intent(getActivity(), ActivityMeHome.class));
-                break;
-            case R.id.exposeGoodsView:
-                ActivityMeHome.setBeingLoadedFragment(FragmentExposeGoods.newInstance(new HashMap<String, String>()));
-                startActivity(new Intent(getActivity(), ActivityMeHome.class));
-                break;
-
         }
     }
 }

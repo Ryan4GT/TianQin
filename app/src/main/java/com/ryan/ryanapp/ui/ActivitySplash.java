@@ -1,20 +1,27 @@
 package com.ryan.ryanapp.ui;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
 
 import com.ryan.ryanapp.R;
 
-import java.util.HashMap;
 
-public class ActivitySplash extends ActivityBase {
+public class ActivitySplash extends ActivityBase implements Handler.Callback {
+    private Handler handler = new Handler(this);
 
-    @Override protected void initView() {
-        toolbar.setVisibility(View.GONE);
-        switchFragment(FragmentSplash.newInstance(new HashMap<String, String>()), R.id.baseViewContainer, false);
+    @Override protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setToolbarVisibility(false);
+        addContentView(R.layout.fragment_splash);
+        setToolbarVisibility(false);
+        handler.sendEmptyMessageDelayed(0, 1000);
     }
 
+    @Override public boolean handleMessage(Message msg) {
+        startActivity(new Intent(this, ActivityMain.class));
+        finish();
+        return true;
+    }
 }

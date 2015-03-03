@@ -25,6 +25,7 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
     protected OnFragmentInteractionListener mListener;
     protected View fragmentRootView;
     protected Toolbar toolbar;
+    protected ActivityBase activityBase;
     protected Handler baseHandler;
     protected AlertDialog dialog;
 
@@ -41,22 +42,14 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        activityBase = (ActivityBase) getActivity();
+        toolbar = activityBase.toolbar;
         LogUtils.i(TAG, "onActivityCreated(@Nullable Bundle savedInstanceState)");
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        LogUtils.i(TAG, "onAttach(Activity activity)");
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-            toolbar = ((ActivityBase) activity).toolbar;
-            toolbar.setVisibility(View.VISIBLE);
-            baseHandler = new Handler(this);
-            toolbar.setNavigationOnClickListener(this);
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
@@ -69,7 +62,6 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
     @Override
     public void onResume() {
         super.onResume();
-        toolbar.setNavigationIcon(R.drawable.ic_launcher);
         //        LogUtils.i(TAG, "onResume()");
     }
 
@@ -101,8 +93,9 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
 
     /**
      * 显示加载页面
-     * @return 当前的对话框对象
+     *
      * @param loadingText 加载提示文字
+     * @return 当前的对话框对象
      */
     protected void showLoadingDialog(String loadingText) {
 
@@ -124,6 +117,7 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
 
     /**
      * 显示加载页面
+     *
      * @return 当前的对话框对象
      */
     protected void showLoadingDialog() {
@@ -139,7 +133,7 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
     }
 
     @Override public void onClick(View v) {
-        if(v.getId() == -1){
+        if (v.getId() == -1) {
             LogUtils.i(TAG, "点击了返回键");
             getActivity().onBackPressed();
         }

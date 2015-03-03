@@ -12,19 +12,11 @@ import com.ryan.ryanapp.R;
  */
 public class ActivityMeHome extends ActivityBase {
 
-    private static FragmentBase beingLoadedFragment;
-    public static void setBeingLoadedFragment(FragmentBase beingLoadedFragment) {
-        ActivityMeHome.beingLoadedFragment = beingLoadedFragment;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        switchFragment(beingLoadedFragment, R.id.baseViewContainer, false);
-    }
-
-    @Override protected void initView() {
 
     }
-
 }

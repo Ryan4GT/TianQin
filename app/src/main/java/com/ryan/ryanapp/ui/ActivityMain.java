@@ -1,5 +1,6 @@
 package com.ryan.ryanapp.ui;
 
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -20,36 +21,36 @@ public class ActivityMain extends ActivityBase {
     public static final int ME_TAB = 4;
     private int currentTab;
 
-    @Override
-    protected void initView() {
-        toolbar.setTitle("MainActivity");
+    @Override protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setToolbarMiddleTitle("MainActivity");
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
         toolbar.inflateMenu(R.menu.activity_main_menu);
-        baseViewContainer.addView(View.inflate(this, R.layout.activity_main, null));
-        View mainTab = baseViewContainer.findViewById(R.id.mainTab);
-        View orderTab = baseViewContainer.findViewById(R.id.orderTab);
-        View messageTab = baseViewContainer.findViewById(R.id.messageTab);
-        View meTab = baseViewContainer.findViewById(R.id.meTab);
+        addContentView(R.layout.activity_main);
+        View mainTab = findViewById(R.id.mainTab);
+        View orderTab = findViewById(R.id.orderTab);
+        View messageTab = findViewById(R.id.messageTab);
+        View meTab = findViewById(R.id.meTab);
         mainTab.setOnClickListener(this);
         orderTab.setOnClickListener(this);
         messageTab.setOnClickListener(this);
         meTab.setOnClickListener(this);
         setCurrentTab(MAIN_TAB);
-
     }
 
+
     public void setCurrentTab(int position) {
-        if(position == currentTab) {
+        if (position == currentTab) {
             return;
         }
-        ImageView mainTabImage = (ImageView) baseViewContainer.findViewById(R.id.mainTabImage);
-        TextView mainTabTitle = (TextView) baseViewContainer.findViewById(R.id.mainTabTitle);
-        ImageView orderTabImage = (ImageView) baseViewContainer.findViewById(R.id.orderTabImage);
-        TextView orderTabTitle = (TextView) baseViewContainer.findViewById(R.id.orderTabTitle);
-        ImageView messageTabImage = (ImageView) baseViewContainer.findViewById(R.id.messageTabImage);
-        TextView messageTabTitle = (TextView) baseViewContainer.findViewById(R.id.messageTabTitle);
-        ImageView meTabImage = (ImageView) baseViewContainer.findViewById(R.id.meTabImage);
-        TextView meTabTitle = (TextView) baseViewContainer.findViewById(R.id.meTabTitle);
+        ImageView mainTabImage = (ImageView) findViewById(R.id.mainTabImage);
+        TextView mainTabTitle = (TextView) findViewById(R.id.mainTabTitle);
+        ImageView orderTabImage = (ImageView) findViewById(R.id.orderTabImage);
+        TextView orderTabTitle = (TextView) findViewById(R.id.orderTabTitle);
+        ImageView messageTabImage = (ImageView) findViewById(R.id.messageTabImage);
+        TextView messageTabTitle = (TextView) findViewById(R.id.messageTabTitle);
+        ImageView meTabImage = (ImageView) findViewById(R.id.meTabImage);
+        TextView meTabTitle = (TextView) findViewById(R.id.meTabTitle);
         mainTabImage.setImageResource(R.drawable.main_normal);
         orderTabImage.setImageResource(R.drawable.order_normal);
         messageTabImage.setImageResource(R.drawable.message_normal);
@@ -112,14 +113,14 @@ public class ActivityMain extends ActivityBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override public boolean dispatchTouchEvent(MotionEvent ev) {
-        if(currentTab == ORDER_TAB){
+        if (currentTab == ORDER_TAB) {
             FragmentOrder.dispatchTouchEvent(ev);
         }
         return super.dispatchTouchEvent(ev);

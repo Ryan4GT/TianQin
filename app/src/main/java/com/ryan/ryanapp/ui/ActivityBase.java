@@ -1,57 +1,97 @@
 package com.ryan.ryanapp.ui;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.Toolbar.OnMenuItemClickListener;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ryan.ryanapp.R;
-import com.ryan.ryanapp.Utils.LogUtils;
 
-import java.util.Map;
+public class ActivityBase extends ActionBarActivity implements OnMenuItemClickListener, View.OnClickListener {
 
-public abstract class ActivityBase extends ActionBarActivity implements OnMenuItemClickListener, View.OnClickListener, FragmentBase.OnFragmentInteractionListener, Handler.Callback {
     protected String TAG;
     protected Toolbar toolbar;
-    protected FrameLayout baseViewContainer;
-    protected Handler baseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG = getClass().getSimpleName();
-        baseHandler = new Handler(this);
         setContentView(R.layout.activity_base);
-        toolbar = (Toolbar) findViewById(R.id.toolBar);
-        baseViewContainer = (FrameLayout) findViewById(R.id.baseViewContainer);
-        initView();
-        toolbar.setBackgroundResource(R.color.white);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
         toolbar.setNavigationOnClickListener(this);
+        toolbar.setEnabled(true);
+    }
+
+
+    /* 设置Toolbar自定义Tittle的内容* */
+    public void setToolbarMiddleTitle(String middleTitle) {
+        ((TextView) findViewById(R.id.toolbarMiddleTittle)).setText(middleTitle);
+    }
+
+    /* 设置Toolbar自定义Tittle的内容* */
+    public void setToolbarMiddleTitle(int middleTitleRes) {
+        String middleTitle = getString(middleTitleRes);
+        setToolbarMiddleTitle(middleTitle);
     }
 
     /**
-     * 设置Toolbar和Activity界面视图
+     * 设置Toolbar中间视图
      */
-    protected abstract void initView();
+    public void setCustomToolbarMiddleView(View customeToolbarMiddleView) {
+        LinearLayout toolbarMiddleView = (LinearLayout) findViewById(R.id.toolbarMiddleView);
+        toolbarMiddleView.removeAllViews();
+        toolbarMiddleView.addView(customeToolbarMiddleView);
+    }
 
+    /**
+     * 设置Toolbar是否可见
+     */
+    public void setToolbarVisibility(boolean visible) {
+        if (visible) {
+            toolbar.setVisibility(View.VISIBLE);
+        } else {
+            toolbar.setVisibility(View.GONE);
+        }
+    }
 
-    @Override
-    public boolean onMenuItemClick(MenuItem menuItem) {
-        LogUtils.i(TAG, "点击了： " + menuItem.getItemId());
-        return false;
+    /**设置Toolbar分割线是否可见*/
+    public void setToolbarDeviderVisibility(boolean visible) {
+        View toolbarDevider = findViewById(R.id.toolbarDevider);
+        if (visible) {
+            toolbarDevider.setVisibility(View.VISIBLE);
+        } else {
+            toolbarDevider.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 子类的Activity向添加显示的界面视图
+     */
+    public void addContentView(int layoutResID) {
+        View contentView = LayoutInflater.from(this).inflate(layoutResID, null, false);
+        addContentView(contentView);
+    }
+
+    public void addContentView(View contentView) {
+        ViewStub contentViewStub = (ViewStub) findViewById(R.id.contentViewStub);
+        LinearLayout contentViewContainer = (LinearLayout) contentViewStub.inflate().findViewById(R.id.contentViewContainer);
+        contentViewContainer.removeAllViews();
+        contentViewContainer.addView(contentView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
     }
 
 
     /**
      * 切换Frament
+     *
      * @param addToBackStack 是否放入返回栈
      */
     protected void switchFragment(FragmentBase beingOpenedFragment, int container, boolean addToBackStack) {
@@ -80,17 +120,10 @@ public abstract class ActivityBase extends ActionBarActivity implements OnMenuIt
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == -1) {
-            LogUtils.i(TAG, "点击了顶部导航返回键……");
-        }
     }
 
     @Override
-    public void onFragmentInteraction(Map<String, Object> args) {
-
-    }
-
-    @Override public boolean handleMessage(Message msg) {
+    public boolean onMenuItemClick(MenuItem menuItem) {
         return false;
     }
 }

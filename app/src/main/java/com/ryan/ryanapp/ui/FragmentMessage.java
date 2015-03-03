@@ -50,7 +50,7 @@ public class FragmentMessage extends FragmentBase {
 
     @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        toolbar.setTitle(R.string.fragment_message_title);
+//        toolbar.setTitle(R.string.fragment_message_title);
         LinearLayout recyclerViewContainer = (LinearLayout) fragmentRootView.findViewById(R.id.recyclerViewContainer);
         refreshRecyclerView = new PullToRefreshRecyclerView<String>(getActivity()) {
             @Override public void onBindBaseViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
