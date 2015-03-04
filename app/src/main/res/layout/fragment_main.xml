@@ -1,123 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.ryan.ryanapp.ui.FragmentMain">
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
 
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--<com.gc.materialdesign.views.ButtonFlat
-                android:id="@+id/buttonflat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                android:layout_marginTop="@dimen/_10dp"
-                android:text="Button"/>
-
-            <com.gc.materialdesign.views.ButtonRectangle
-                android:id="@+id/button"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                android:text="Button"/>
-
-            <com.gc.materialdesign.views.ButtonFloat
-                android:id="@+id/buttonFloat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="@dimen/_10dp"
-                android:background="#1E88E5"
-                materialdesign:animate="true"
-                materialdesign:iconDrawable="@drawable/ic_launcher"/>
-
-            <com.gc.materialdesign.views.ButtonFloatSmall
-                android:id="@+id/buttonFloatSmall"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                materialdesign:iconDrawable="@drawable/ic_action_new"/>
-
-            <com.gc.materialdesign.views.CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:background="#1E88E5"
-                materialdesign:check="true"/>
-
-            <com.gc.materialdesign.views.Switch
-                android:id="@+id/switchView"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                materialdesign:check="true"/>
-
-
-            <com.gc.materialdesign.views.ProgressBarCircularIndeterminate
-                android:id="@+id/progressBarCircularIndeterminate"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="@dimen/_10dp"
-                android:background="#1E88E5"/>
-
-            <com.gc.materialdesign.views.ProgressBarIndeterminate
-                android:id="@+id/progressBarIndeterminate"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"/>
-
-            <com.gc.materialdesign.views.ProgressBarIndeterminateDeterminate
-                android:id="@+id/progressBarIndeterminateDeterminate"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"/>
-
-            <com.gc.materialdesign.views.ProgressBarDeterminate
-                android:id="@+id/progressDeterminate"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"/>
-
-            <com.gc.materialdesign.views.Slider
-                android:id="@+id/slider"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                materialdesign:max="50"
-                materialdesign:min="0"/>
-
-            <com.gc.materialdesign.views.Slider
-                android:id="@+id/sliderWithNum"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_height="wrap_content"
-                android:background="#1E88E5"
-                materialdesign:max="50"
-                materialdesign:min="0"
-                materialdesign:showNumberIndicator="true"/>-->
-
-        </LinearLayout>
-    </ScrollView>
-
-
+    </android.support.v4.view.ViewPager>
 </FrameLayout>

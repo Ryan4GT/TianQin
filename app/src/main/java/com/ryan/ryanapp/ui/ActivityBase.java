@@ -19,6 +19,8 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
 
     protected String TAG;
     protected Toolbar toolbar;
+    protected TextView toolbarMiddleTittle;
+    protected LinearLayout toolbarMiddleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +28,22 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
         TAG = getClass().getSimpleName();
         setContentView(R.layout.activity_base);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbarMiddleView = (LinearLayout) findViewById(R.id.toolbarMiddleView);
+        toolbarMiddleTittle = ((TextView) toolbar.findViewById(R.id.toolbarMiddleTittle));
         toolbar.setOnMenuItemClickListener(this);
         toolbar.setNavigationOnClickListener(this);
         toolbar.setEnabled(true);
     }
 
+    /**设置Toolbar标题是否可见*/
+    public void setToolbarMiddleTittleVisibility(int visibility) {
+        toolbarMiddleTittle.setVisibility(visibility);
+    }
+
 
     /* 设置Toolbar自定义Tittle的内容* */
     public void setToolbarMiddleTitle(String middleTitle) {
-        ((TextView) findViewById(R.id.toolbarMiddleTittle)).setText(middleTitle);
+        toolbarMiddleTittle.setText(middleTitle);
     }
 
     /* 设置Toolbar自定义Tittle的内容* */
@@ -47,10 +56,15 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
      * 设置Toolbar中间视图
      */
     public void setCustomToolbarMiddleView(View customeToolbarMiddleView) {
-        LinearLayout toolbarMiddleView = (LinearLayout) findViewById(R.id.toolbarMiddleView);
         toolbarMiddleView.removeAllViews();
         toolbarMiddleView.addView(customeToolbarMiddleView);
     }
+
+    /**设置Toolbar中间视图是否可见*/
+    public void setCustomToolbarMiddleViewVisibility(int visibility) {
+        toolbarMiddleView.setVisibility(visibility);
+    }
+
 
     /**
      * 设置Toolbar是否可见
@@ -63,7 +77,9 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
         }
     }
 
-    /**设置Toolbar分割线是否可见*/
+    /**
+     * 设置Toolbar分割线是否可见
+     */
     public void setToolbarDeviderVisibility(boolean visible) {
         View toolbarDevider = findViewById(R.id.toolbarDevider);
         if (visible) {

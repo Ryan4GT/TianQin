@@ -7,119 +7,142 @@
 
     <LinearLayout
         android:id="@+id/activityMainBottomBar"
-        android:padding="@dimen/_5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:padding="@dimen/_5dp">
 
         <RelativeLayout
             android:id="@+id/mainTab"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/mainTabImage"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
                 android:id="@+id/mainTabTitle"
-                android:layout_below="@id/mainTabImage"
-                android:text="主页"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mainTabImage"
+                android:layout_centerHorizontal="true"
+                android:text="主页"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/orderTab"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/orderTabImage"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:text="订单"
                 android:id="@+id/orderTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/orderTabImage"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="订单"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/messageTab"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/messageTabImage"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:text="消息"
                 android:id="@+id/messageTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/messageTabImage"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="消息"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/meTab"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/meTabImage"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:text="我的"
                 android:id="@+id/meTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/meTabImage"
                 android:layout_centerHorizontal="true"
+                android:text="我的"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fifthTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fifthTabImage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/fifthTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fifthTabImage"
+                android:layout_centerHorizontal="true"
+                android:text="我的"/>
 
         </RelativeLayout>
 
     </LinearLayout>
 
     <View
-        android:layout_above="@id/activityMainBottomBar"
-        android:background="@color/devider"
+        android:id="@+id/devider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1px"
-        android:id="@+id/devider"/>
+        android:layout_above="@id/activityMainBottomBar"
+        android:background="@color/devider"/>
 
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/activityMainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/devider">
+        android:layout_above="@id/devider"
+        android:orientation="vertical">
     </LinearLayout>
 
 </RelativeLayout>

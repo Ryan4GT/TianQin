@@ -25,7 +25,6 @@ public class ActivityMain extends ActivityBase {
         super.onCreate(savedInstanceState);
         setToolbarMiddleTitle("MainActivity");
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
-        toolbar.inflateMenu(R.menu.activity_main_menu);
         addContentView(R.layout.activity_main);
         View mainTab = findViewById(R.id.mainTab);
         View orderTab = findViewById(R.id.orderTab);
@@ -61,7 +60,7 @@ public class ActivityMain extends ActivityBase {
         meTabTitle.setTextColor(getResources().getColor(R.color.black));
         switch (position) {
             case MAIN_TAB:
-                switchFragment(FragmentMain.newInstance(new HashMap<String, String>()), R.id.activityMainContainer, false);
+                switchFragment(new FragmentMain(), R.id.activityMainContainer, false);
                 mainTabImage.setImageResource(R.drawable.main_selected);
                 mainTabTitle.setTextColor(getResources().getColor(R.color.theme_color));
                 break;
@@ -71,7 +70,7 @@ public class ActivityMain extends ActivityBase {
                 messageTabTitle.setTextColor(getResources().getColor(R.color.theme_color));
                 break;
             case ORDER_TAB:
-                switchFragment(FragmentOrder.newInstance(new HashMap<String, String>()), R.id.activityMainContainer, false);
+                switchFragment(new FragmentOrder(), R.id.activityMainContainer, false);
                 orderTabImage.setImageResource(R.drawable.order_selected);
                 orderTabTitle.setTextColor(getResources().getColor(R.color.theme_color));
                 break;
@@ -104,25 +103,7 @@ public class ActivityMain extends ActivityBase {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (currentTab == ORDER_TAB) {
-            FragmentOrder.dispatchTouchEvent(ev);
-        }
         return super.dispatchTouchEvent(ev);
     }
 }
