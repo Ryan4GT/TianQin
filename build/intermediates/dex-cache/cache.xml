@@ -2,25 +2,18 @@
 <items version="2" >
 
     <item
+        jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\org.apmem.tools\layouts\1.8\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d2c9b8eefd9172da44088725defc921ef472ebb6">
+        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\classes-bda030514da583c69126e7d15e5aa945b5538787.jar" />
+    </item>
+    <item
         jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d3153a06bae422dc9db7d4e328de23eab08193a2.jar" />
-    </item>
-    <item
-        jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\classes-6ae87445bfe390cc142cbe8123bc22cd06c6c60d.jar" />
-    </item>
-    <item
-        jar="F:\program_files\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-559f773d8a86528126136387523bcbf4a5615123.jar" />
     </item>
     <item
         jar="F:\workspace\AndroidStudioProject\BasicProject\app\libs\universal-image-loader-1.9.3.jar"
@@ -42,6 +35,27 @@
         revision="21.1.2"
         sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
         <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\classes-bb78393dadcf58e8918fbfbc93b1c43b44651b65.jar" />
+    </item>
+    <item
+        jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\classes-6ae87445bfe390cc142cbe8123bc22cd06c6c60d.jar" />
+    </item>
+    <item
+        jar="F:\program_files\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-559f773d8a86528126136387523bcbf4a5615123.jar" />
+    </item>
+    <item
+        jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\com.fmsirvent\parallaxeverywhere\1.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fe4b1a30dc46c72071c8e451abf85b399f48589a">
+        <dex dex="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\pre-dexed\debug\classes-37104821dfed3f0bc2f37a7452b9eed4154faed7.jar" />
     </item>
     <item
         jar="F:\workspace\AndroidStudioProject\BasicProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"

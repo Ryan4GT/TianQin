@@ -1,0 +1,141 @@
+<com.ryan.ryanapp.ui.customeview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                  xmlns:tools="http://schemas.android.com/tools"
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="match_parent"
+                                                  tools:context="com.ryan.ryanapp.ui.FragmentMyAccountInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/headImage"
+                    android:textSize="@dimen/abc_text_size_medium_material"/>
+
+                <ImageView
+                    android:id="@+id/forwardAarowView"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow"/>
+
+                <ImageView
+                    android:id="@+id/headImageView"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_toLeftOf="@+id/forwardAarowView"
+                    android:src="@drawable/ic_launcher"/>
+            </RelativeLayout>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/name"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/account"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <RelativeLayout
+                android:id="@+id/myQRView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10dp">
+
+                <TextView
+                    android:id="@+id/myQRTitleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/myQR"
+                    android:textSize="@dimen/abc_text_size_medium_material"/>
+
+
+                <ImageView
+                    android:id="@+id/myQRForwardAarowView"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:src="@drawable/arrow"/>
+
+                <ImageView
+                    android:id="@+id/myQRImageView"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/myQRForwardAarowView"
+                    android:src="@drawable/ic_launcher"/>
+            </RelativeLayout>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/myAddress"></com.ryan.ryanapp.SettingItemView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/gender"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/area"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIconVisible="false"
+                app:settingItemTitle="@string/characterSign"></com.ryan.ryanapp.SettingItemView>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.ryan.ryanapp.ui.customeview.BounceScrollView>

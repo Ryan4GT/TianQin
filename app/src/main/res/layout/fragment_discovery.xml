@@ -1,0 +1,42 @@
+<com.ryan.ryanapp.ui.customeview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                  xmlns:tools="http://schemas.android.com/tools"
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="match_parent"
+                                                  tools:context="com.ryan.ryanapp.ui.FragmentDiscovery">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.ryan.ryanapp.SettingItemView
+            android:id="@+id/friendsDynamicView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:settingItemIcon="@drawable/ic_launcher"
+            app:settingItemTitle="@string/friendsDynamic"></com.ryan.ryanapp.SettingItemView>
+
+        <View style="@style/settingItemDivider"/>
+
+        <com.ryan.ryanapp.SettingItemView
+            android:id="@+id/newActivityView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:settingItemIcon="@drawable/ic_launcher"
+            app:settingItemTitle="@string/newActivity"></com.ryan.ryanapp.SettingItemView>
+
+        <View style="@style/settingItemDivider"/>
+
+        <com.ryan.ryanapp.SettingItemView
+            android:id="@+id/circleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:settingItemIcon="@drawable/ic_launcher"
+            app:settingItemTitle="@string/circle"></com.ryan.ryanapp.SettingItemView>
+
+    </LinearLayout>
+
+</com.ryan.ryanapp.ui.customeview.BounceScrollView>

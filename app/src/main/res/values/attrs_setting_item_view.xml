@@ -1,0 +1,14 @@
+<resources>
+    <declare-styleable name="SettingItemView">
+        <attr name="settingItemIcon" format="reference"/>
+        <attr name="settingItemIconSize" format="dimension|reference"/>
+        <attr name="settingItemIconVisible" format="boolean"/>
+        <attr name="settingItemTitle" format="string|reference"/>
+        <attr name="settingItemTitleSize" format="dimension|reference"/>
+        <attr name="settingItemTitleColor" format="color|reference"/>
+        <attr name="settingItemCount" format="string|reference"/>
+        <attr name="settingItemCountSize" format="dimension|reference"/>
+        <attr name="settingItemCountColor" format="color|reference"/>
+        <attr name="settingItemForwardArrowVisible" format="boolean"/>
+    </declare-styleable>
+</resources>
