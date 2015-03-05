@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/mainTabImage"
                 android:layout_centerHorizontal="true"
-                android:text="主页"/>
+                android:text="@string/daDongMen"/>
 
         </RelativeLayout>
 
@@ -55,9 +55,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/orderTabImage"
                 android:layout_centerHorizontal="true"
-                android:text="订单"/>
+                android:text="@string/contacts"/>
 
         </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/messageTab"
@@ -78,7 +79,30 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/messageTabImage"
                 android:layout_centerHorizontal="true"
-                android:text="消息"/>
+                android:text="@string/message"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/discoveryTab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/discoveryTabImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/discoveryTabTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/discoveryTabImage"
+                android:layout_centerHorizontal="true"
+                android:text="@string/discovery"/>
 
         </RelativeLayout>
 
@@ -105,28 +129,6 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/fifthTab"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/fifthTabImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher"/>
-
-            <TextView
-                android:id="@+id/fifthTabTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/fifthTabImage"
-                android:layout_centerHorizontal="true"
-                android:text="我的"/>
-
-        </RelativeLayout>
 
     </LinearLayout>
 

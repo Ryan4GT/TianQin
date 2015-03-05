@@ -41,7 +41,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ActivityMeHome"
-            android:label="@string/title_activity_activity_me_detail" >
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.ActivityMyAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ActivityDiscovery"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

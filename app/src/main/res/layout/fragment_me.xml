@@ -4,57 +4,153 @@
                                                   android:layout_height="match_parent">
 
     <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="com.ryan.ryanapp.ui.FragmentMe">
+        android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/meView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16dp"
             android:background="@color/white"
-            android:layout_width="match_parent"
-            android:padding="@dimen/_5dp"
-            android:layout_height="wrap_content">
+            android:padding="@dimen/_10dp">
 
             <com.ryan.ryanapp.ui.customeview.CircleImageView
-                android:src="@drawable/naruto"
-                android:layout_width="@dimen/_56dp"
                 android:id="@+id/headImageView"
-                app:border_width="@dimen/_2dp"
-                app:border_color="@color/activity_background"
-                android:layout_height="@dimen/_56dp"/>
-
-            <TextView
-                android:text="nickname"
-                android:layout_marginLeft="@dimen/_5dp"
-                android:layout_toRightOf="@+id/headImageView"
-                android:id="@+id/nicknameView"
+                android:layout_width="@dimen/_56dp"
+                android:layout_height="@dimen/_56dp"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10dp"
+                android:src="@drawable/naruto"
+                app:border_color="@color/activity_background"
+                app:border_width="@dimen/_2dp"/>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/headImageView"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nicknameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:text="nickname"/>
+
+                <TextView
+                    android:id="@+id/accountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_toRightOf="@+id/headImageView"
+                    android:text="nickname"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/forwardAarowView"
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:src="@drawable/arrow"/>
+
+            <ImageView
+                android:id="@+id/QRCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/forwardAarowView"
+                android:src="@drawable/ic_launcher"/>
+
         </RelativeLayout>
 
-
-
-        <TextView
-            android:text="发布商品"
-            android:id="@+id/exposeGoodsView"
-            android:background="@color/white"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16dp"
-            android:gravity="center"
-            android:layout_height="@dimen/_56dp"/>
-
-        <TextView
-            android:text="我的商品"
-            android:id="@+id/exposedGoodsView"
             android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/_1px"
-            android:gravity="center"
-            android:layout_height="@dimen/_56dp"/>
+            android:orientation="vertical">
 
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/purseView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/purse"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/orderView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/order"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/photoAlbumView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/photoAlbum"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/addressView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/address"></com.ryan.ryanapp.SettingItemView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/couponView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/myCoupon"></com.ryan.ryanapp.SettingItemView>
+
+            <View style="@style/settingItemDivider"/>
+
+            <com.ryan.ryanapp.SettingItemView
+                android:id="@+id/freeTicketsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:settingItemIcon="@drawable/ic_launcher"
+                app:settingItemTitle="@string/freeTickets"></com.ryan.ryanapp.SettingItemView>
+
+        </LinearLayout>
+
+        <com.ryan.ryanapp.SettingItemView
+            android:id="@+id/sellerToolsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@color/white"
+            app:settingItemIcon="@drawable/ic_launcher"
+            app:settingItemTitle="@string/sellerTools"></com.ryan.ryanapp.SettingItemView>
     </LinearLayout>
 </com.ryan.ryanapp.ui.customeview.BounceScrollView>
 

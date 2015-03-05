@@ -2,6 +2,7 @@ package com.ryan.ryanapp.ui;
 
 import android.os.Bundle;
 import android.view.ViewAnimationUtils;
+import android.widget.ListView;
 
 import com.ryan.ryanapp.R;
 
@@ -17,6 +18,5 @@ public class ActivityMeHome extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 }

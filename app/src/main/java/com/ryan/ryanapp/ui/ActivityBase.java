@@ -14,10 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ryan.ryanapp.R;
+import com.ryan.ryanapp.Utils.LogUtils;
 
 public class ActivityBase extends ActionBarActivity implements OnMenuItemClickListener, View.OnClickListener {
 
     protected String TAG;
+    protected static final String BEING_OPENED_FRAGMENT_ID = "beingOpenedFragmentID";
     protected Toolbar toolbar;
     protected TextView toolbarMiddleTittle;
     protected LinearLayout toolbarMiddleView;
@@ -35,7 +37,9 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
         toolbar.setEnabled(true);
     }
 
-    /**设置Toolbar标题是否可见*/
+    /**
+     * 设置Toolbar标题是否可见
+     */
     public void setToolbarMiddleTittleVisibility(int visibility) {
         toolbarMiddleTittle.setVisibility(visibility);
     }
@@ -60,7 +64,9 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
         toolbarMiddleView.addView(customeToolbarMiddleView);
     }
 
-    /**设置Toolbar中间视图是否可见*/
+    /**
+     * 设置Toolbar中间视图是否可见
+     */
     public void setCustomToolbarMiddleViewVisibility(int visibility) {
         toolbarMiddleView.setVisibility(visibility);
     }
@@ -136,6 +142,9 @@ public class ActivityBase extends ActionBarActivity implements OnMenuItemClickLi
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == -1) {
+            LogUtils.i(TAG, TAG + "  点击了Toolbar的返回键");
+        }
     }
 
     @Override

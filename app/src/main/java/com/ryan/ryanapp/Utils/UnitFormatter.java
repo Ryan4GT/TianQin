@@ -33,4 +33,9 @@ public class UnitFormatter {
         int px = (int) (value * scale + 0.5f);
         return px;
     }
+
+    public static int sp2px(float spValue) {
+        final float fontScale = RyanApp.instance.getApplicationContext().getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
 }

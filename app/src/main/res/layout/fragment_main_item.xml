@@ -28,86 +28,18 @@
                 android:id="@+id/nicknameView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AAAAA"/>
+                android:text="Nickname"/>
 
             <TextView
                 android:id="@+id/distanceAndLoginTimeView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="AAAAA"/>
+                android:text="DistanceAndLoginTime"/>
         </RelativeLayout>
 
-        <com.ryan.ryanapp.ui.customeview.FlowLayout
-            android:id="@+id/userTagsView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="asdasdasas"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="asdasdasas"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="212"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="3134345445"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:background="@color/devider"
-                android:maxLines="2"
-                android:text="423"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="545432"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5dp"
-                android:maxLines="2"
-                android:background="@color/devider"
-                android:text="asdasdasas"/>
-
-        </com.ryan.ryanapp.ui.customeview.FlowLayout>
-
         <org.apmem.tools.layouts.FlowLayout
-            android:id="@+id/userTagsView2"
+            android:id="@+id/userTagsView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             >
@@ -118,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text="asdasdasas"/>
+            android:text="Description"/>
 
     </LinearLayout>
 

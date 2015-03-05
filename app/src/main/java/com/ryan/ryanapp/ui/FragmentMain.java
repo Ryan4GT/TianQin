@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.ryan.ryanapp.R;
 import com.ryan.ryanapp.Utils.UnitFormatter;
-import com.ryan.ryanapp.ui.customeview.FlowLayout;
 import com.ryan.ryanapp.ui.customeview.PagerSlidingTabStrip;
 import com.ryan.ryanapp.ui.customeview.PullToRefreshRecyclerView;
 
@@ -43,21 +42,20 @@ public class FragmentMain extends FragmentBase {
 
     @Override public void onResume() {
         super.onResume();
-        toolbar.setTitle("");
         toolbar.setNavigationIcon(null);
-        toolbar.getMenu().clear();
         toolbar.inflateMenu(R.menu.activity_main_menu);
         activityBase.setToolbarMiddleTittleVisibility(View.GONE);
         activityBase.setCustomToolbarMiddleViewVisibility(View.VISIBLE);
         PagerSlidingTabStrip pagerSlidingTabStrip = new PagerSlidingTabStrip(activityBase);
-        pagerSlidingTabStrip.setIndicatorColor(getResources().getColor(R.color.transparent));
+        pagerSlidingTabStrip.setIndicatorColor(getResources().getColor(R.color.white));
+        pagerSlidingTabStrip.setIndicatorHeight(1);
         pagerSlidingTabStrip.setDividerColor(getResources().getColor(R.color.transparent));
         pagerSlidingTabStrip.setTextColor(getResources().getColor(R.color.white));
         pagerSlidingTabStrip.setTextSize((int) getResources().getDimension(R.dimen.abc_text_size_medium_material));
         pagerSlidingTabStrip.setUnderlineHeight(0);
         pagerSlidingTabStrip.setOverScrollMode(ScrollView.OVER_SCROLL_NEVER);
         pagerSlidingTabStrip.setTabPaddingLeftRight(UnitFormatter.getDPUnit(20));
-        pagerSlidingTabStrip.setSelectedTabBackgroud(R.drawable.ic_launcher);
+//        pagerSlidingTabStrip.setSelectedTabBackgroud(R.drawable.ic_launcher);
         activityBase.setCustomToolbarMiddleView(pagerSlidingTabStrip);
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter();
         mainViewPager.setAdapter(mainPagerAdapter);
@@ -81,6 +79,13 @@ public class FragmentMain extends FragmentBase {
                 @Override public void onBindBaseViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
                     MainItemViewHolder mainItemViewHolder = ((MainItemViewHolder) viewHolder);
                     mainItemViewHolder.nicknameView.setText(datas.get(position));
+                    TextView textView = null;
+                    for (int i = 0; i < 10; i++) {
+                        textView = new TextView(activityBase);
+                        textView.setText(" TAG " + i);
+                        textView.setPadding(0, 0, (int) UnitFormatter.dp2px(10 ), 0);
+                        mainItemViewHolder.userTagsView.addView(textView);
+                    }
                 }
 
                 @Override public RecyclerView.ViewHolder onCreateBaseViewHolder(ViewGroup viewGroup, int itemType) {
@@ -149,8 +154,7 @@ public class FragmentMain extends FragmentBase {
         ImageView headImageView;
         TextView nicknameView;
         TextView distanceAndLoginTimeView;
-        org.apmem.tools.layouts.FlowLayout userTagsView2;
-        FlowLayout userTagsView;
+        org.apmem.tools.layouts.FlowLayout userTagsView;
         TextView introductionView;
 
         public MainItemViewHolder(View itemView) {
@@ -162,13 +166,7 @@ public class FragmentMain extends FragmentBase {
             headImageView = (ImageView) itemView.findViewById(R.id.headImageView);
             nicknameView = (TextView) itemView.findViewById(R.id.nicknameView);
             distanceAndLoginTimeView = (TextView) itemView.findViewById(R.id.distanceAndLoginTimeView);
-            userTagsView = (FlowLayout) itemView.findViewById(R.id.userTagsView);
-            userTagsView2 = (org.apmem.tools.layouts.FlowLayout) itemView.findViewById(R.id.userTagsView2);
-            for (int i = 0; i < 10; i++) {
-                TextView textView = new TextView(activityBase);
-                textView.setText("  TAG " + i);
-                userTagsView2.addView(textView);
-            }
+            userTagsView = (org.apmem.tools.layouts.FlowLayout) itemView.findViewById(R.id.userTagsView);
             introductionView = (TextView) itemView.findViewById(R.id.introdutionView);
         }
 

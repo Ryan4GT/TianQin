@@ -17,8 +17,6 @@ import com.ryan.ryanapp.Utils.LogUtils;
 import com.ryan.ryanapp.Utils.StringUtil;
 
 import java.io.File;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,30 +26,6 @@ public class FragmentMe extends FragmentBase {
     private ImageView headImageView;
     private TextView nicknameView;
     private String headImageLocalPath;
-    private TextView exposeGoodsView;
-    private TextView exposedGoodsView;
-
-    /**
-     * Use this factory method to create a new instance of this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment FragmentBase.
-     */
-    public static FragmentMe newInstance(Map<String, String> params) {
-        FragmentMe fragmentMe = new FragmentMe();
-        Bundle args = new Bundle();
-        Iterator<String> iterator = params.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            args.putString(key, params.get(key));
-        }
-        fragmentMe.setArguments(args);
-        return fragmentMe;
-    }
-
-    @Override public void onAttach(Activity activity) {
-        super.onAttach(activity);
-//        toolbar.setTitle(R.string.fragment_me_title);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,13 +34,25 @@ public class FragmentMe extends FragmentBase {
 
     @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        View meView = fragmentRootView.findViewById(R.id.meView);
+        View purseView = fragmentRootView.findViewById(R.id.purseView);
+        View orderView = fragmentRootView.findViewById(R.id.orderView);
+        View photoAlbumView = fragmentRootView.findViewById(R.id.photoAlbumView);
+        View addressView = fragmentRootView.findViewById(R.id.addressView);
+        View couponView = fragmentRootView.findViewById(R.id.couponView);
+        View freeTicketsView = fragmentRootView.findViewById(R.id.freeTicketsView);
+        View sellerToolsView = fragmentRootView.findViewById(R.id.sellerToolsView);
+        meView.setOnClickListener(this);
+        purseView.setOnClickListener(this);
+        orderView.setOnClickListener(this);
+        photoAlbumView.setOnClickListener(this);
+        addressView.setOnClickListener(this);
+        couponView.setOnClickListener(this);
+        freeTicketsView.setOnClickListener(this);
+        sellerToolsView.setOnClickListener(this);
         headImageView = (ImageView) fragmentRootView.findViewById(R.id.headImageView);
         nicknameView = (TextView) fragmentRootView.findViewById(R.id.nicknameView);
-        exposedGoodsView = (TextView) fragmentRootView.findViewById(R.id.exposedGoodsView);
-        exposeGoodsView = (TextView) fragmentRootView.findViewById(R.id.exposeGoodsView);
         headImageView.setOnClickListener(this);
-        exposeGoodsView.setOnClickListener(this);
-        exposedGoodsView.setOnClickListener(this);
     }
 
     @Override public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -98,9 +84,11 @@ public class FragmentMe extends FragmentBase {
         }
     }
 
-    @Override
-    public void onResume() {
+
+    @Override public void onResume() {
         super.onResume();
+        toolbar.setNavigationIcon(null);
+        activityBase.setToolbarMiddleTitle("我的");
     }
 
     @Override public void onClick(View v) {
@@ -108,6 +96,11 @@ public class FragmentMe extends FragmentBase {
         switch (v.getId()) {
             case R.id.headImageView:
                 ActivityImageLibraryBrowser.chooseImageFromLibrary(this);
+                break;
+            case R.id.meView:
+                Intent intent = new Intent(activityBase, ActivityMyAccount.class);
+                intent.putExtra(ActivityBase.BEING_OPENED_FRAGMENT_ID, ActivityMyAccount.MY_ACCOUNT_INFO_ID);
+                startActivity(intent);
                 break;
         }
     }

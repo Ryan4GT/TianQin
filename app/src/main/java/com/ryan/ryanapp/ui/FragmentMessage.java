@@ -76,6 +76,12 @@ public class FragmentMessage extends FragmentBase {
     }
 
 
+    @Override public void onResume() {
+        super.onResume();
+        activityBase.setToolbarMiddleTitle("消息");
+        toolbar.setNavigationIcon(null);
+    }
+
     public class FriendsViewHolder extends RecyclerView.ViewHolder {
         public ImageView headImageView;
         public TextView nicknameView;

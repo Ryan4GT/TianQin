@@ -62,8 +62,15 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
     @Override
     public void onResume() {
         super.onResume();
+        activityBase.setTitle("");
+        activityBase.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        activityBase.toolbar.getMenu().clear();
+        activityBase.setCustomToolbarMiddleViewVisibility(View.GONE);
+        activityBase.setToolbarMiddleTittleVisibility(View.VISIBLE);
+        toolbar.setNavigationOnClickListener(this);
         //        LogUtils.i(TAG, "onResume()");
     }
+
 
     @Override
     public void onDetach() {
@@ -134,7 +141,7 @@ public class FragmentBase extends Fragment implements Handler.Callback, View.OnC
 
     @Override public void onClick(View v) {
         if (v.getId() == -1) {
-            LogUtils.i(TAG, "点击了返回键");
+            LogUtils.i(TAG, TAG + "  点击了返回键");
             getActivity().onBackPressed();
         }
     }
